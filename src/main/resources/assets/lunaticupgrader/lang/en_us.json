@@ -1,0 +1,16 @@
+{
+  "lunaticupgrader.upgrade.preview": "Upgrade to %s | Success: %s%% | Cost: %s XP",
+  "lunaticupgrader.upgrade.success": "Upgrade succeeded! Now %s",
+  "lunaticupgrader.upgrade.fail": "Upgrade failed! Dropped to %s",
+  "lunaticupgrader.upgrade.fail_zero": "Upgrade failed! Item lost its upgrade",
+  "lunaticupgrader.tooltip.level": "Upgrade: %s/%s",
+  "lunaticupgrader.tooltip.maxed": "Upgrade: %s [Maxed]",
+  "lunaticupgrader.tooltip.arrow_damage": "+%s%% Arrow Damage",
+  "lunaticupgrader.anvil.cost": "Upgrade Cost: %s XP",
+  "lunaticupgrader.command.set": "Set %s to upgrade level %s",
+  "lunaticupgrader.command.get": "%s is at upgrade level %s/%s",
+  "lunaticupgrader.command.not_upgradeable": "The item in your main hand can't be upgraded",
+  "subtitles.lunaticupgrader.upgrade_success": "A star ignites",
+  "subtitles.lunaticupgrader.upgrade_unseal": "Star ring completes",
+  "subtitles.lunaticupgrader.upgrade_fail": "A star fades"
+}

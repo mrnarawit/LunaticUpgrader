@@ -1,0 +1,14 @@
+{
+  "upgrade_success": {
+    "sounds": ["lunaticupgrader:upgrade_success"],
+    "subtitle": "subtitles.lunaticupgrader.upgrade_success"
+  },
+  "upgrade_unseal": {
+    "sounds": ["lunaticupgrader:upgrade_unseal"],
+    "subtitle": "subtitles.lunaticupgrader.upgrade_unseal"
+  },
+  "upgrade_fail": {
+    "sounds": ["lunaticupgrader:upgrade_fail"],
+    "subtitle": "subtitles.lunaticupgrader.upgrade_fail"
+  }
+}

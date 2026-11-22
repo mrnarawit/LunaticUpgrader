@@ -1,0 +1,29 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+
+[[mods]]
+modId="lunaticupgrader"
+version="1.0.0"
+displayName="Lunatic Upgrader"
+authors="naravit"
+description='''
+Upgrade weapons, tools, bows, shields and armor from +1 to +10 in an Anvil using any Smithing Template.
+Each level adds +6% Attack Damage (weapons/tools) +6% Arrow Damage (bows/crossbows), +0.3 Armor/Toughness (shields)
+or +0.4 Armor/Toughness (armor), plus +10% max durability.
+Every upgrade lights one star of a 10-star ring; reaching +10 completes it.
+'''
+
+[[dependencies.lunaticupgrader]]
+    modId="neoforge"
+    type="required"
+    versionRange="[21.1.0,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.lunaticupgrader]]
+    modId="minecraft"
+    type="required"
+    versionRange="[1.21.1,1.21.2)"
+    ordering="NONE"
+    side="BOTH"

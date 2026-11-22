@@ -1,14 +1,34 @@
-# Lunatic Upgrader (NeoForge 1.21.1)
+# Lunatic Upgrader
 
-ตีบวกอาวุธ / เครื่องมือ / ธนู / โล่ / เกราะ ใน Anvil ด้วย Smithing Template อะไรก็ได้
+![Minecraft 1.21.1](https://img.shields.io/badge/Minecraft-1.21.1-62B47A)
+![NeoForge 21.1](https://img.shields.io/badge/NeoForge-21.1.x-E0662E)
+![License MIT](https://img.shields.io/badge/License-MIT-blue)
 
-## วิธีใช้ในเกม
-1. วางอาวุธ/เครื่องมือ/ธนู/โล่/เกราะ ช่องซ้ายของ Anvil
-2. วาง Smithing Template ใดก็ได้ (Netherite Upgrade หรือ Armor Trim ทุกแบบ) ช่องขวา
-3. หยิบผลลัพธ์ → ได้ขั้นถัดไป (ใช้ Template 1 ชิ้น + แต้ม XP)
+An MMORPG-style **+1 to +10 upgrade system** for Minecraft. Put a weapon, tool, bow, shield or armor piece in an anvil
+with any Smithing Template and try to push it one level higher. Every level adds stats, a new name color and a star
+to its seal. Higher levels are riskier, and a failed upgrade costs a level.
 
-| ตีไปขั้น | โอกาสสำเร็จ | แต้ม XP |
-|---|---|---|
+## Features
+
+- Upgrade weapons, tools, bows, crossbows, shields and armor from **+1 to +10**, including items from other mods.
+- **Any Smithing Template** works as the upgrade material, together with XP.
+- Success chance drops at every level. A failed upgrade **drops the item one level**.
+- Stat bonuses for every level, merged into the normal tooltip numbers.
+- **+10% max durability** per level on every upgradeable item.
+- **Colored names** by level, animated names at +9 and +10, and a different +10 color scheme for each item type.
+- **Star Seal effects**: a 10-star ring above the anvil and around the anvil's result slot, custom "Lunar Choir"
+  sounds, and a big burst of light when the ring is completed at +10.
+- Optional support for **Spell Power Attribute**, **Wizards** and **Bard** (RPG Series).
+- Works with **Easy Anvils**.
+
+## How to upgrade
+
+1. Put the item in the **left** slot of an anvil and any **Smithing Template** in the **right** slot.
+2. The anvil shows the cost (`Upgrade Cost: N XP`) and the action bar shows the success chance.
+3. Take the result. The template and the XP are used up whether the upgrade succeeds or fails.
+
+| Upgrade to | Success | XP cost (points) |
+|:---:|:---:|:---:|
 | +1 | 95% | 25 |
 | +2 | 90% | 50 |
 | +3 | 85% | 75 |
@@ -20,69 +40,106 @@
 | +9 | 55% | 225 |
 | +10 | 50% | 250 |
 
-ตีพลาด = เสีย Template + XP และของลดลง 1 ขั้น (เช่น ตี +5 → +6 พลาด จะเหลือ +4)
+- **On failure** the item drops one level (an item at +0 stays at +0).
+- The cost is in **experience points**, not levels. Going from +0 to +10 without a single failure costs 1,375 points.
 
-| ขั้น | สีชื่อ |
+## Bonuses per level
+
+| Item | Per level | At +10 |
+|---|---|---|
+| Weapons and tools | +6% Attack Damage | +60% |
+| Pickaxes (extra) | +2% mining speed | +20% |
+| Bows and crossbows | +6% arrow damage | +60% |
+| Shields (while held) | +0.3 Armor, +0.3 Armor Toughness | +3 / +3 |
+| Armor | +0.3 Armor, +0.2 Armor Toughness | +3 / +2 |
+| All upgradeable items | +10% max durability | +100% |
+
+The attack bonus is based on the weapon's **real** attack damage, including changes made by datapacks or other mods
+(for example NeoAttributeModify), and the tooltip shows one combined number (`7 → 11.2 Attack Damage` at +10).
+It is applied as a multiply-base modifier, so flat attack bonuses from other equipment are scaled by it too.
+
+### Optional mod support
+
+| Mod | Effect per level |
 |---|---|
-| +1 | เทา `#D0D0D0` |
-| +2 | เขียว `#8FE36B` |
-| +3 | เขียวมิ้นต์ `#3FD4A0` |
-| +4 | ฟ้า `#45B5FF` |
-| +5 | น้ำเงิน `#5B7CFF` |
-| +6 | ม่วง `#A66BFF` |
-| +7 | ไล่เฉด ม่วง → ชมพู |
-| +8 | ไล่เฉด ชมพู → ส้ม + ตัวหนา |
-| +9 | แดง ตัวหนา + แสงวิ่งผ่าน (ใน tooltip) |
-| +10 | สีพลิ้ว + ตัวหนา (ใน tooltip) แยกตามชนิด, tooltip ขึ้น Upgrade: 10 [Maxed] |
+| Spell Power Attribute | Armor: +1% `spell_power:resistance.generic` |
+| Wizards (RPG Series) | Items tagged `rpg_series:archetype/magic_damage_weapon`: +3% `spell_power:generic` instead of Attack Damage |
+| Bard (RPG Series Plus) | Lutes: +4% Arcane, +2% Healing, +2% Attack Damage<br>Lyres: +2% Arcane, +4% Healing, +2% Attack Damage |
 
-สี +10 แยกตามชนิด:
-- อาวุธ/เครื่องมือ: Twilight (ส้ม / ชมพู / ม่วงคราม)
-- Pickaxe: Fire and ice (ฟ้า / ขาว / ส้ม)
-- โล่: Nether forge (ส้ม / ทอง / น้ำตาลแดง)
-- เครื่องดนตรี (Bard): Ocean pearl (ขาวมุก / ฟ้าอมเขียว / น้ำเงิน)
-- ธนู/หน้าไม้: Toxic neon (เขียวนีออน)
-- คทา/ไม้กายสิทธิ์ (Wizards): Mint candy (มิ้นต์ / ขาว / ชมพู)
-- เกราะ: Obsidian flame (ม่วงเข้ม / ม่วงสด / ส้มไฟ)
+None of these mods are required. If one is missing, its bonus is simply skipped.
 
-- อาวุธ/เครื่องมือ (ดาบ, ขวาน, พลั่ว, จอบ, pickaxe, trident, mace ฯลฯ): +6% Attack Damage ต่อขั้น (+10 = +60%) คิดจากค่าโจมตีที่ใช้งานจริง (รวมค่าที่ datapack แก้ไว้) และรวมเป็นตัวเลขเดียวใน tooltip เช่น 7 → 11.2 Attack Damage
-- Pickaxe: ขุดไวขึ้นอีก +2% ต่อขั้น (+10 = +20%)
-- ธนู/หน้าไม้: ลูกธนูแรงขึ้น +6% ต่อขั้น
-- โล่: +0.3 Armor และ +0.3 Armor Toughness ต่อขั้นเมื่อถือในมือ (+10 = +3 / +3)
-- เกราะ: +0.3 Armor และ +0.2 Armor Toughness ต่อขั้น (+10 = +3 / +2) รวมเข้ากับค่าเดิมของชิ้นนั้นใน tooltip
-- ทุกชิ้น: ความทนทานสูงสุด +10% ต่อขั้น (ไม่แสดงใน tooltip)
-- หน้าจอ Anvil แสดง Upgrade Cost: N XP (รองรับ Easy Anvils)
-- +10 คือสูงสุด
-- รองรับไอเทมจาก mod อื่นที่มีค่า Attack Damage/Armor หรือเป็นธนู/โล่
+## Name colors
 
-## เอฟเฟกต์ Star seal + เสียง Lunar choir
-วงดาว 10 ดวง ดาวแต่ละดวง = ขั้นที่ได้มาแล้ว (สีตามขั้น)
-- ในโลก: วงดาวลอยเหนือ Anvil (หันเข้าหากล้องของทุกคน)
-  - ตีสำเร็จ: ประกายรวมตัวแล้วดาวดวงใหม่สว่างขึ้น
-  - ถึง +10: ประกายไหลเข้าช่องสุดท้าย 1.8 วินาที -> ดาวครบวง -> ระเบิดแสง (แสงวาบ, คลื่นกระแทก, เสาแสง, ละอองลอยค้าง)
-  - ตีพลาด: ประกายฟุ้งเป็นสีเทา ดาวดวงล่าสุดดับลง
-- ในหน้าจอ Anvil (เห็นเฉพาะคนที่ใช้ รองรับ Easy Anvils): วงดาวรอบช่องผลลัพธ์ ช่องถัดไปกะพริบ, ดาวตกพุ่งเข้าช่อง, ตัวเลข +N / -1 ลอยขึ้น, ตอน +10 หน้าจอสั่นและกรอบเรืองแสง
-- คนที่ตีเองจะเห็นแสงวาบทั้งจอ และจอสั่นตอน +10
-- ปิด particle หรือเอฟเฟกต์บนจอได้ที่ `config/lunaticupgrader-client.toml`
+| Level | Style |
+|---|---|
+| +1 to +6 | Gray, green, mint, light blue, blue, purple |
+| +7 | Purple-to-pink gradient |
+| +8 | Pink-to-orange gradient, bold |
+| +9 | Bold red with a moving shine |
+| +10 | Bold animated colors, by item type |
 
-## รองรับ mod เสริม (optional ไม่ต้องลงก็ได้)
-- **Spell Power Attribute**: เกราะได้ `spell_power:resistance.generic` +1% ต่อขั้น
-- **Wizards (RPG Series)**: อาวุธที่มี tag `rpg_series:archetype/magic_damage_weapon` ได้ `spell_power:generic` +3% ต่อขั้น แทน Attack Damage
-- **Bard (RPG Series plus)**:
-  - `bards_rpg:lutes`: Arcane +4%, Healing +2%, Attack Damage +2% ต่อขั้น
-  - `bards_rpg:lyres`: Arcane +2%, Healing +4%, Attack Damage +2% ต่อขั้น
++10 color schemes: **Weapons** Twilight, **Pickaxes** Fire and Ice, **Shields** Nether Forge, **Bows / crossbows**
+Toxic Neon, **Staffs / wands** Mint Candy, **Instruments** Ocean Pearl, **Armor** Obsidian Flame.
+The animation plays in tooltips; the name above the hotbar uses a still gradient.
+Tooltips also show `Upgrade: n/10`, or `Upgrade: 10 [Maxed]` at +10.
 
-## คำสั่ง (ต้องเป็น OP / เปิด cheats)
-- `/lunaticupgrader set <0-10>` ตั้งขั้นตีบวกของไอเทมในมือหลัก (0 = ล้างการตีบวก)
-- `/lunaticupgrader get` ดูขั้นของไอเทมในมือหลัก
+## Star Seal effects
 
-## Build
-ต้องมี JDK 21
+| Result | In the world | In the anvil screen |
+|---|---|---|
+| Success | Sparks gather and a new star lights up | A shooting star flies into the ring, `+N` floats up |
+| +10 | Sparks flow into the last star for 1.8 s, then a flash, shockwave and light pillar | Screen shakes, the ring flashes, the frame glows, a big `+10` |
+| Fail | Sparks fizzle and the newest star fades | Gray sparks, the newest star fades, `-1` floats up |
+
+Each star uses the color of its level. Nearby players see the world effects; only the player at the anvil sees the
+screen flash and camera shake.
+
+## Commands
+
+Operator only (permission level 2). They affect the item in your main hand.
+
 ```
-./gradlew build          (Windows: gradlew.bat build)
+/lunaticupgrader set <0-10>   Set the upgrade level (0 removes the upgrade)
+/lunaticupgrader get          Show the current upgrade level
 ```
-ไฟล์ mod จะอยู่ที่ `build/libs/lunaticupgrader-1.0.0.jar` → ใส่โฟลเดอร์ `mods`
 
-ทดสอบในเกม: `./gradlew runClient`
+## Configuration
 
-## Config
-`<โฟลเดอร์โลก>/serverconfig/lunaticupgrader-server.toml` (เซิร์ฟเวอร์ส่งค่าให้ client อัตโนมัติ) — ปรับ % ต่อขั้น, แต้ม XP และโอกาสสำเร็จของแต่ละขั้นได้
+| File | Side | Contents |
+|---|---|---|
+| `<world>/serverconfig/lunaticupgrader-server.toml` | Server (synced to clients) | Bonuses per level, optional mod bonuses, success chance and XP cost per level |
+| `config/lunaticupgrader-client.toml` | Client | `particles`, `screenEffects` |
+
+Config files keep their old values when the mod is updated. After an update, edit the file or delete it so the new
+defaults are written.
+
+## Installation
+
+- Minecraft **1.21.1** with **NeoForge 21.1.x**
+- Install on **both the client and the server** (the mod adds sounds, particles and network packets).
+
+## Building from source
+
+Requires JDK 21.
+
+```
+Windows:      .\gradlew.bat build
+macOS/Linux:  ./gradlew build
+```
+
+The jar is written to `build/libs/lunaticupgrader-1.0.0.jar`. Use `gradlew runClient` to test in a dev client.
+
+## Notes
+
+- To give an upgraded item a custom name, rename it **before** its first upgrade. The anvil's name field is ignored
+  while upgrading.
+- From +7 upward the name above the hotbar is stored as fixed English text (the gradient needs literal text).
+  Tooltips still use your game language.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md).
+
+## License
+
+[MIT](LICENSE). Made by naravit.
